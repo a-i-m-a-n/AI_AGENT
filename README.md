@@ -49,75 +49,21 @@ The application also includes theme switching, model selection, JSON chat export
 
 ## Application Execution Flow
 
-```mermaid
-flowchart TD
-    A[User Opens Application] --> B[Initialize Streamlit Session State]
-    B --> C{State Exists?}
-
-    C -- No --> D[Initialize Messages, Theme, Model & Personality]
-    C -- Yes --> E[Load Existing Session]
-
-    D --> F[Load CSS Theme]
-    E --> F
-
-    F --> G[Render Sidebar]
-
-    G --> H{Sidebar Actions}
-
-    H --> I[Switch Personality]
-    H --> J[Toggle Theme]
-    H --> K[Select Model]
-    H --> L[Clear Current Chat]
-
-    F --> M[Render Main Interface]
-
-    M --> N[Display Conversation]
-    M --> O[Display Chat Input]
-
-    O --> P{Prompt Submitted?}
-
-    P --> Q[Append User Message]
-    Q --> R[Build API Payload]
-    R --> S[Groq API]
-    S --> T[Receive Response]
-    T --> U[Store Assistant Response]
-    U --> V[Refresh UI]
-    V --> M
-```
-
-## Prompt Processing & Guardrail Pipeline
+## Workflow
 
 ```mermaid
-graph TD
-
-A[User Prompt]
--->
-B[Retrieve Selected Personality]
-
-B --> C[Load Personality Configuration]
-
-C --> D[Load System Prompt]
-
-D --> E[Combine Prompt + Chat History]
-
-E --> F[Groq LLM]
-
-F --> G{Topic Validation}
-
-G -->|Allowed| H[Generate Response]
-
-G -->|Off Topic| I[Return Guardrail Message]
-
-H --> J[Save Conversation]
-
-I --> J
-
-J --> K[Update Session State]
-
-K --> L[Refresh UI]
+flowchart LR
+    A[Launch Application] --> B[Select Personality]
+    B --> C[Enter Prompt]
+    C --> D[Build Prompt with Persona & Chat History]
+    D --> E[Groq API]
+    E --> F{Within Persona Domain?}
+    F -->|Yes| G[Generate Response]
+    F -->|No| H[Return Guardrail Message]
+    G --> I[Save Chat History]
+    H --> I
+    I --> J[Update Interface]
 ```
-
----
 
 # Codebase Layout
 
