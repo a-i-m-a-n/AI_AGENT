@@ -45,13 +45,13 @@ The application also includes theme switching, model selection, JSON chat export
 
 | Personality | Domain | Behavior |
 |-------------|--------|----------|
-| 📐 Mathematics | Algebra, Geometry, Calculus, Statistics | Answers mathematics-related questions and politely declines unrelated queries. |
-| 🩺 Medicine | General health, Anatomy, Symptoms, First Aid | Provides general medical information while declining non-medical requests. |
-| 💻 Technology | Programming, AI, Networking, Software | Assists with technical concepts, coding, debugging, and software-related questions. |
-| 📚 Literature | Poetry, Novels, Literary Analysis, Writing | Discusses literature and writing while refusing unrelated topics. |
-| ⚖️ Law | Legal concepts, Rights, Contracts, Regulations | Provides general legal information without offering professional legal advice. |
-| 💰 Finance | Budgeting, Investing, Personal Finance, Economics | Offers financial guidance and educational information while avoiding unrelated topics. |
----
+| 📐 Math Teacher | Algebra, Geometry, Calculus, Statistics, Mathematical Reasoning | Solves mathematical problems, explains concepts step-by-step, and politely declines non-mathematical questions. |
+| 🩺 Doctor | General Health, Anatomy, Symptoms, First Aid, Wellness | Provides general medical information and encourages consulting healthcare professionals for diagnosis or treatment. |
+| ✈️ Travel Guide | Destinations, Itineraries, Local Culture, Budget Travel | Recommends travel destinations, itineraries, and travel tips while declining unrelated requests. |
+| 🍳 Chef | Recipes, Cooking Techniques, Baking, Meal Planning | Assists with recipes, ingredient substitutions, and cooking advice while refusing non-food-related queries. |
+| 💻 Tech Support | Programming, Software, Networking, Operating Systems | Helps with coding, debugging, software installation, and technical troubleshooting only. |
+| 💪 Fitness Coach | Exercise, Nutrition, Workout Plans, Healthy Lifestyle | Provides fitness guidance, workout routines, and wellness advice while avoiding unrelated topics. |
+| 💰 Financial Advisor | Budgeting, Saving, Investing, Personal Finance | Offers educational financial guidance and money management tips without providing professional financial advice. |
 
 # System Architecture
 
