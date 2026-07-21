@@ -43,6 +43,14 @@ The application also includes theme switching, model selection, JSON chat export
 - **Fast Inference**
   - Powered by Groq's ultra-low latency API.
 
+| Personality | Domain | Behavior |
+|-------------|--------|----------|
+| 📐 Mathematics | Algebra, Geometry, Calculus, Statistics | Answers mathematics-related questions and politely declines unrelated queries. |
+| 🩺 Medicine | General health, Anatomy, Symptoms, First Aid | Provides general medical information while declining non-medical requests. |
+| 💻 Technology | Programming, AI, Networking, Software | Assists with technical concepts, coding, debugging, and software-related questions. |
+| 📚 Literature | Poetry, Novels, Literary Analysis, Writing | Discusses literature and writing while refusing unrelated topics. |
+| ⚖️ Law | Legal concepts, Rights, Contracts, Regulations | Provides general legal information without offering professional legal advice. |
+| 💰 Finance | Budgeting, Investing, Personal Finance, Economics | Offers financial guidance and educational information while avoiding unrelated topics. |
 ---
 
 # System Architecture
