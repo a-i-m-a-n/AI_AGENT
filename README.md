@@ -91,7 +91,7 @@ AI-PERSONALITY-CHATBOT/
 |-----------|------------|
 | Frontend | Streamlit |
 | LLM API | Groq |
-| Language | Python 3.10+ |
+| Language | Python 3.14.2 |
 | Environment | python-dotenv |
 | Styling | Custom CSS |
 | Models | Llama, Mixtral, Gemma |
