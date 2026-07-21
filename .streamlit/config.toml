@@ -1,0 +1,17 @@
+[theme]
+base             = "dark"
+primaryColor     = "#7C3AED"
+backgroundColor  = "#0F0F1A"
+secondaryBackgroundColor = "#13131F"
+textColor        = "#E0E0FF"
+font             = "sans serif"
+
+[server]
+# Uncomment to change port when running locally
+# port = 8501
+headless         = true
+enableCORS       = false
+enableXsrfProtection = true
+
+[browser]
+gatherUsageStats = false
