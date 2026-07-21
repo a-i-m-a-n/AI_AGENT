@@ -51,55 +51,39 @@ The application also includes theme switching, model selection, JSON chat export
 
 ```mermaid
 flowchart TD
+    A[User Opens Application] --> B[Initialize Streamlit Session State]
+    B --> C{State Exists?}
 
-A[User Opens Application]
--->
-B[Initialize Streamlit Session State]
+    C -- No --> D[Initialize Messages, Theme, Model & Personality]
+    C -- Yes --> E[Load Existing Session]
 
-B --> C{Existing State?}
+    D --> F[Load CSS Theme]
+    E --> F
 
-C -- No --> D[Initialize Messages, Theme, Model & Personality]
-C -- Yes --> E[Load Existing Session]
+    F --> G[Render Sidebar]
 
-D --> F[Load CSS Theme]
-E --> F
+    G --> H{Sidebar Actions}
 
-F --> G[Render Sidebar]
+    H --> I[Switch Personality]
+    H --> J[Toggle Theme]
+    H --> K[Select Model]
+    H --> L[Clear Current Chat]
 
-G --> H{Sidebar Actions}
+    F --> M[Render Main Interface]
 
-H --> I[Switch Personality]
+    M --> N[Display Conversation]
+    M --> O[Display Chat Input]
 
-H --> J[Toggle Theme]
+    O --> P{Prompt Submitted?}
 
-H --> K[Select Groq Model]
-
-H --> L[Clear Current Chat]
-
-F --> M[Render Main Interface]
-
-M --> N[Display Conversation]
-
-M --> O[Display Chat Input]
-
-O --> P{Prompt Submitted?}
-
-P --> Q[Append User Message]
-
-Q --> R[Create API Payload]
-
-R --> S[Groq Chat Completion API]
-
-S --> T[Receive Response]
-
-T --> U[Store Assistant Response]
-
-U --> V[st.rerun()]
-
-V --> M
+    P --> Q[Append User Message]
+    Q --> R[Build API Payload]
+    R --> S[Groq API]
+    S --> T[Receive Response]
+    T --> U[Store Assistant Response]
+    U --> V[Refresh UI]
+    V --> M
 ```
-
----
 
 ## Prompt Processing & Guardrail Pipeline
 
@@ -180,99 +164,38 @@ cd AI-PERSONALITY-CHATBOT
 
 ---
 
-## 2. Create a Virtual Environment
+## Installation
 
-### Linux / macOS
-
-```bash
-python3 -m venv venv
-
-source venv/bin/activate
-```
-
-### Windows
-
-```bash
-python -m venv venv
-
-venv\Scripts\activate
-```
-
----
-
-## 3. Install Dependencies
+Install the required dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
----
-
-## 4. Configure Environment Variables
-
-Create a `.env` file in the project root.
+Create a `.env` file in the project root:
 
 ```env
 GROQ_API_KEY=your_groq_api_key_here
 ```
 
-If deploying to **Streamlit Cloud**, add the secret as:
-
-```toml
-GROQ_API_KEY="your_groq_api_key_here"
-```
-
----
-
-# Running the Application
-
-Start the Streamlit server:
+Run the application:
 
 ```bash
 streamlit run app.py
 ```
 
-Open your browser and navigate to:
+Open your browser and visit:
 
 ```
 http://localhost:8501
 ```
 
----
-
-# Configuration
-
-## Adding a New Personality
-
-All personalities are stored in `personalities.py`.
-
-Each personality follows this structure:
-
-```python
-"Persona Name": {
-    "icon": "Icon",
-    "color": "#HEXCOLOR",
-    "gradient": "linear-gradient(...)",
-    "allowed_topics": [
-        "Topic 1",
-        "Topic 2"
-    ],
-    "system_prompt": (
-        "Role definition."
-        "Reject off-topic requests."
-        "Keep responses concise."
-    ),
-    "suggested_prompts": [
-        "Prompt 1",
-        "Prompt 2"
-    ],
-}
-```
-
-Simply add another dictionary entry to create a new AI personality.
-
----
-
+> **For Streamlit Community Cloud:** Add your API key in **Settings → Secrets**:
+>
+> ```toml
+> GROQ_API_KEY="your_groq_api_key_here"
+> ```
+> 
 # Project Highlights
 
 - Multiple domain-specific AI assistants
@@ -283,20 +206,6 @@ Simply add another dictionary entry to create a new AI personality.
 - Downloadable conversation history
 - Clean Streamlit interface
 - Modular personality configuration
-
----
-
-# Future Improvements
-
-- Voice input and speech synthesis
-- Image understanding
-- Persistent database storage
-- Authentication and user accounts
-- Conversation search
-- Additional AI personalities
-- Multi-language support
-
----
 
 # Author
 
